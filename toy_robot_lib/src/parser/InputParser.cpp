@@ -3,7 +3,7 @@
 //
 
 #include <regex>
-#include <exception>
+#include <stdexcept>
 
 #include "InputParser.h"
 #include "command/MoveCommand.h"

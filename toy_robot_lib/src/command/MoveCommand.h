@@ -8,6 +8,7 @@
 #include <iostream>
 #include "command/Command.h"
 #include "robot/Robot.h"
+#include <memory>
 
 using namespace std;
 using namespace toyrobot::robot;

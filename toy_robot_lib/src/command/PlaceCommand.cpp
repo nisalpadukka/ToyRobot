@@ -4,6 +4,7 @@
 
 #include "PlaceCommand.h"
 #include "utils/AngleMapperUtils.h"
+#include <stdexcept>
 
 using namespace std;
 using namespace toyrobot::command;

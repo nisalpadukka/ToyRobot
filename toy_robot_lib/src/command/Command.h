@@ -4,9 +4,6 @@
 
 #pragma once
 
-#include "../robot/Robot.h"
-
-using namespace toyrobot::robot;
 
 namespace toyrobot {
     namespace command {

@@ -5,7 +5,10 @@
 #pragma once
 #include <string>
 #include "command/Command.h"
+#include "robot/Robot.h"
+#include <memory>
 
+using namespace toyrobot::robot;
 using namespace toyrobot::command;
 
 namespace toyrobot {

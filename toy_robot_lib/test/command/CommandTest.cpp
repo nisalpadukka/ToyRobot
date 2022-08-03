@@ -11,6 +11,7 @@
 #include "command/RotateCommand.h"
 #include "command/ReportCommand.h"
 #include "utils/AngleMapperUtils.h"
+#include <memory>
 
 using namespace toyrobot::command;
 

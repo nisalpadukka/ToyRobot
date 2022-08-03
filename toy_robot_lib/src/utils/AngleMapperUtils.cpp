@@ -3,6 +3,7 @@
 //
 
 #include "AngleMapperUtils.h"
+#include <stdexcept>
 
 using namespace toyrobot::utils;
 
