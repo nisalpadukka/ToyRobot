@@ -8,10 +8,10 @@ using namespace toyrobot::utils;
 
 namespace {
     //facings
-    constexpr const char *FACING_NORTH = "NORTH";
-    constexpr const char *FACING_SOUTH = "SOUTH";
-    constexpr const char *FACING_EAST = "EAST";
-    constexpr const char *FACING_WEST = "WEST";
+    constexpr const char* FACING_NORTH = "NORTH";
+    constexpr const char* FACING_SOUTH = "SOUTH";
+    constexpr const char* FACING_EAST = "EAST";
+    constexpr const char* FACING_WEST = "WEST";
 }
 
 //Get the value of turn in degrees

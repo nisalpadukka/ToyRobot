@@ -69,7 +69,7 @@ namespace toyrobottest{
         auto reportCommand = m_inputParser->parse("REPORT", m_robot, m_surface);
         testing::internal::CaptureStdout();
         reportCommand->execute();
-        std::string output = testing::internal::GetCapturedStdout();
+        string output = testing::internal::GetCapturedStdout();
         validatePlacement(1, 2, 90);
         EXPECT_EQ("1,2,EAST\n", output);
     }

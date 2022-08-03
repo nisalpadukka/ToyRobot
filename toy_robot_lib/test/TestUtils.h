@@ -20,10 +20,17 @@ using namespace std;
 
 namespace toyrobottest {
     template<typename T>
-    toyrobot::orientation::Attribute <T> getAttribute(T x, T y) {
+    static toyrobot::orientation::Attribute <T> getAttribute(T x, T y) {
         toyrobot::orientation::Attribute<T> attribute;
         attribute.setValue(toyrobot::orientation::Axis::X, x);
         attribute.setValue(toyrobot::orientation::Axis::Y, y);
+        return attribute;
+    }
+
+    template<typename T>
+    static toyrobot::orientation::Attribute <T> getAttribute(toyrobot::orientation::Axis axis, T value) {
+        toyrobot::orientation::Attribute<T> attribute;
+        attribute.setValue(axis, value);
         return attribute;
     }
 }

@@ -12,8 +12,7 @@ namespace toyrobot {
     namespace parser {
         class InputParser {
         public:
-            static unique_ptr<Command>
-            parse(const string &input, unique_ptr<Robot> &robot, unique_ptr<Surface> &surface);
+            static unique_ptr<Command> parse(const string &input, unique_ptr<Robot> &robot, unique_ptr<Surface> &surface);
         };
     }
 }

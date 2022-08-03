@@ -19,10 +19,11 @@ void MoveCommand::execute() {
         newCoordinates.setValue(Axis::X, m_robot->getCoordinate(Axis::X));
         newCoordinates.setValue(Axis::Y, m_robot->getCoordinate(Axis::Y));
         newCoordinates.setValue(axis, newCoordinates.getValue(axis) + distance);
-        if (m_surface->isInsideSurface(newCoordinates)){
-            m_robot->setCoordinate(Axis::X, newCoordinates.getValue(Axis::X));
-            m_robot->setCoordinate(Axis::Y, newCoordinates.getValue(Axis::Y));
+        if (!m_surface->isInsideSurface(newCoordinates)){
+            throw invalid_argument("Cannot move outside surface");
         }
+        m_robot->setCoordinate(Axis::X, newCoordinates.getValue(Axis::X));
+        m_robot->setCoordinate(Axis::Y, newCoordinates.getValue(Axis::Y));
     };
     switch(m_robot->getRotation(Axis::Z)){
         case 0:{

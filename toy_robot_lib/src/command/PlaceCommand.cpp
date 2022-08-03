@@ -18,11 +18,12 @@ void PlaceCommand::execute() {
     auto copyCoordinate = [this](Axis axis){
         m_robot->setCoordinate(axis, m_coordinates.getValue(axis));
     };
-    if (m_surface->isInsideSurface(m_coordinates)){
-        copyCoordinate(Axis::X);
-        copyCoordinate(Axis::Y);
-        m_robot->setRotation(Axis::Z, m_rotation.getValue(Axis::Z));
+    if (!m_surface->isInsideSurface(m_coordinates)){
+        throw invalid_argument("Place command should be within surface");
     }
+    copyCoordinate(Axis::X);
+    copyCoordinate(Axis::Y);
+    m_robot->setRotation(Axis::Z, m_rotation.getValue(Axis::Z));
 }
 
 

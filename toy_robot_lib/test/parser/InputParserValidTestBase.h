@@ -5,7 +5,7 @@
 #include <gtest/gtest.h>
 
 #include <utility>
-#include "TestUtils.h"
+#include "../TestUtils.h"
 #include "parser/InputParser.h"
 #include "robot/Robot.h"
 #include "surface/TableTop.h"
@@ -27,7 +27,7 @@ namespace toyrobottest{
                 m_input(std::move(input)), m_coordinateX(coordinateX), m_coordinateY(coordinateY), m_rotationZ(rotationZ) {}
     };
 
-    //Test suite with valid test cases base class, this test class can be extended for other commands
+    //Test suite for valid test cases base class, this test class can be extended for other commands
     class InputParserValidTestBase : public testing::TestWithParam<ValidInput> {
     protected:
         unique_ptr<toyrobot::robot::Robot> m_robot = make_unique<toyrobot::robot::Robot>();

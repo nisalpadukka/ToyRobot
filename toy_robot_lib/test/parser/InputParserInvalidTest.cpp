@@ -3,7 +3,7 @@
 //
 
 #include <gtest/gtest.h>
-#include "TestUtils.h"
+#include "../TestUtils.h"
 #include "parser/InputParser.h"
 #include "robot/Robot.h"
 #include "surface/TableTop.h"

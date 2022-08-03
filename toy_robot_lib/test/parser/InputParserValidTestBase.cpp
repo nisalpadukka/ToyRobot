@@ -7,12 +7,8 @@
 using namespace toyrobottest;
 
 void InputParserValidTestBase::placeRobot(const int& x, const int& y, const int& angle){
-    Attribute<int> coordinates;
-    coordinates.setValue(toyrobot::orientation::Axis::X, x);
-    coordinates.setValue(toyrobot::orientation::Axis::Y, y);
-    Attribute<int> rotation;
-    rotation.setValue(toyrobot::orientation::Axis::Z, angle);
-    auto placeCommand = make_unique<PlaceCommand>(m_robot, m_surface, coordinates, rotation);
+    auto placeCommand = make_unique<PlaceCommand>(m_robot, m_surface,
+                                                  getAttribute(x, y), getAttribute(Axis::Z, angle));
     placeCommand->execute();
 }
 

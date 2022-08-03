@@ -74,7 +74,7 @@ namespace{
         );
     }
 
-    string getCommandType(const string& command){
+    inline string getCommandType(const string& command){
         auto pos = command.find(' ');
         if (pos == string::npos) {
             return command;
@@ -107,7 +107,7 @@ namespace{
             Attribute<int> rotation;
             rotation.setValue(Axis::Z, AngleMapperUtils::getAngleValue(attributes[2]));
             return unique_ptr<Command>{new PlaceCommand(robot, surface, coordinates, rotation)};
-        }catch (exception e){
+        }catch (exception& e){
             throwInvalidCommandException();
         }
         return nullptr;
