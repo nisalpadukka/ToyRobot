@@ -6,7 +6,9 @@
 
 * There are no other obstructions on the table surface.
 
-* TThe robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
+* The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. 
+
+* Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
 
 ## Requirements
 
@@ -88,14 +90,14 @@ Output:
 
 ## Prerequisites
 
-* C++ 14 
+* C++14 or higher
 * CMake minimum required version 3.22
 
 ## Setup
 
 1. Clone the repository
 
- ```https://github.com/nisalpadukka/ToyRobot.git```
+ ```git clone https://github.com/nisalpadukka/ToyRobot.git```
 
  2. Create build directory
 
@@ -119,7 +121,7 @@ Output:
 
  ## Test
 
- 1. Execute Test build 
+ Execute Test build 
 
  ```cd PROJECT_ROOT_DIRECTORY/build/toy_robot_lib/test && ./ToyRobot_test```
 
