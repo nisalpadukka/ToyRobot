@@ -32,9 +32,8 @@ namespace toyrobottest{
     protected:
         unique_ptr<toyrobot::robot::Robot> m_robot = make_unique<toyrobot::robot::Robot>();
         unique_ptr<toyrobot::surface::Surface> m_surface = make_unique<toyrobot::surface::TableTop>();
-        unique_ptr<toyrobot::parser::InputParser> m_inputParser = make_unique<toyrobot::parser::InputParser>();
 
         void placeRobot(const int& x, const int& y, const int& angle);
-        void validatePlacement(const int& x, const int& y, const int& angle);
+        void validatePlacement(const int& x, const int& y, const int& angle) const;
     };
 }

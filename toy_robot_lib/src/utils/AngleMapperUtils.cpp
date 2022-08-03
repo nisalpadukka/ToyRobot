@@ -4,7 +4,9 @@
 
 #include "AngleMapperUtils.h"
 #include <stdexcept>
+#include <string>
 
+using namespace std;
 using namespace toyrobot::utils;
 
 namespace {

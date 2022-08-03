@@ -17,7 +17,7 @@ namespace toyrobot {
         private:
             const unique_ptr<Robot>& m_robot;
         public:
-            explicit ReportCommand(unique_ptr<Robot>& robot);
+            explicit ReportCommand(const unique_ptr<Robot>& robot);
             void execute() override;
         };
     }

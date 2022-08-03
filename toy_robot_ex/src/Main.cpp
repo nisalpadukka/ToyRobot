@@ -16,7 +16,7 @@ constexpr const char* INPUT_FILE_PATH = "../../../inputs/inputs.txt";
 int main(){
 
     unique_ptr<toyrobot::robot::Robot> robot =  std::make_unique<toyrobot::robot::Robot>();
-    unique_ptr<toyrobot::surface::Surface> tableTop = make_unique<toyrobot::surface::TableTop>();
+    unique_ptr<toyrobot::surface::Surface> tableTop = std::make_unique<toyrobot::surface::TableTop>();
     ifstream infile(INPUT_FILE_PATH);
     string input;
 
@@ -30,8 +30,8 @@ int main(){
             }
             command->execute();
         }
-        catch (exception& e){
-            cout << "Error: " <<e.what() << endl;
+        catch (std::exception& e){
+            std::cout << "Error: " <<e.what() << endl;
         }
     }
 

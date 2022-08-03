@@ -8,7 +8,7 @@
 using namespace toyrobot::utils;
 using namespace toyrobot::command;
 
-ReportCommand::ReportCommand(unique_ptr<Robot> &robot): m_robot(robot){
+ReportCommand::ReportCommand(const unique_ptr<Robot> &robot): m_robot(robot){
 }
 void ReportCommand::execute() {
     cout << m_robot->getCoordinate(Axis::X) << "," << m_robot->getCoordinate(Axis::Y) << ","

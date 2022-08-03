@@ -39,7 +39,7 @@ unique_ptr<Command> InputParser::parse(const string& input, unique_ptr<Robot>& r
     string preprocessedInput = preprocessInputStr(input);
     auto commandType = getCommandType(preprocessedInput);
     if (commandType == MOVE_COMMAND){
-        return unique_ptr<Command>{new MoveCommand(robot, surface, 1)};
+        return make_unique<MoveCommand>(robot, surface, 1);
     }
     if (commandType == PLACE_COMMAND){
         return getPlaceCommand(robot, surface, preprocessedInput);
@@ -63,7 +63,7 @@ unique_ptr<Command> InputParser::parse(const string& input, unique_ptr<Robot>& r
 namespace{
     string preprocessInputStr(const string& input){
         auto const re = regex("^ +| +$|( ) +");
-        return regex_replace(input, re, "$1");;
+        return regex_replace(input, re, "$1");
     }
 
     vector<string> split(string& str){
@@ -85,7 +85,7 @@ namespace{
     unique_ptr<Command> getRotationCommand(unique_ptr<Robot> &robot, Turn angle){
         Attribute<int> rotation;
         rotation.setValue(Axis::Z, AngleMapperUtils::getAngleValue(angle));
-        return unique_ptr<Command>{new RotateCommand(robot, rotation)};
+        return make_unique<RotateCommand>(robot, rotation);
     }
 
     unique_ptr<Command> getPlaceCommand(unique_ptr<Robot> &robot, unique_ptr<Surface> &surface, const string &input) {
@@ -106,8 +106,8 @@ namespace{
             coordinates.setValue(Axis::Y, atoi(attributes[1].c_str()));
             Attribute<int> rotation;
             rotation.setValue(Axis::Z, AngleMapperUtils::getAngleValue(attributes[2]));
-            return unique_ptr<Command>{new PlaceCommand(robot, surface, coordinates, rotation)};
-        }catch (exception& e){
+            return make_unique<PlaceCommand>(robot, surface, coordinates, rotation);
+        }catch (const exception& e){
             throwInvalidCommandException();
         }
         return nullptr;

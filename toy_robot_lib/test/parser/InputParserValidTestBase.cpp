@@ -12,7 +12,7 @@ void InputParserValidTestBase::placeRobot(const int& x, const int& y, const int&
     placeCommand->execute();
 }
 
-void InputParserValidTestBase::validatePlacement(const int& x, const int& y, const int& angle){
+void InputParserValidTestBase::validatePlacement(const int& x, const int& y, const int& angle) const{
     EXPECT_EQ(x, m_robot->getCoordinate(toyrobot::orientation::Axis::X));
     EXPECT_EQ(y, m_robot->getCoordinate(toyrobot::orientation::Axis::Y));
     EXPECT_EQ(angle, m_robot->getRotation(toyrobot::orientation::Axis::Z));

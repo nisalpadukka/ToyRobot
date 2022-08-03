@@ -23,7 +23,7 @@ namespace toyrobottest{
 
     //Test suite with valid test cases base class, this test class will be extended for new commands
     TEST_P(InputParserPlaceCommand, validPlaceCommand) {
-        auto command = m_inputParser->parse(GetParam().m_input, m_robot, m_surface);
+        auto command = toyrobot::parser::InputParser::parse(GetParam().m_input, m_robot, m_surface);
         command->execute();
         InputParserValidTestBase::validatePlacement(GetParam().m_coordinateX, GetParam().m_coordinateY, GetParam().m_rotationZ);
     }
@@ -42,7 +42,7 @@ namespace toyrobottest{
 
     TEST_P(InputParserMoveCommand, validMoveCommand) {
         InputParserValidTestBase::placeRobot(1, 2, 90);
-        auto moveCommand = m_inputParser->parse(GetParam().m_input, m_robot, m_surface);
+        auto moveCommand = toyrobot::parser::InputParser::parse(GetParam().m_input, m_robot, m_surface);
         moveCommand->execute();
         InputParserValidTestBase::validatePlacement(GetParam().m_coordinateX, GetParam().m_coordinateY, GetParam().m_rotationZ);
     }
@@ -59,14 +59,14 @@ namespace toyrobottest{
 
     TEST_P(InputParserRotateCommand, validRotateCommand) {
         InputParserValidTestBase::placeRobot(1, 2, 90);
-        auto rotateCommand = m_inputParser->parse(GetParam().m_input, m_robot, m_surface);
+        auto rotateCommand = toyrobot::parser::InputParser::parse(GetParam().m_input, m_robot, m_surface);
         rotateCommand->execute();
         InputParserValidTestBase::validatePlacement(GetParam().m_coordinateX, GetParam().m_coordinateY, GetParam().m_rotationZ);
     }
 
     TEST_F(InputParserValidTestBase, validReportCommand) {
         placeRobot(1, 2, 90);
-        auto reportCommand = m_inputParser->parse("REPORT", m_robot, m_surface);
+        auto reportCommand = toyrobot::parser::InputParser::parse("REPORT", m_robot, m_surface);
         testing::internal::CaptureStdout();
         reportCommand->execute();
         string output = testing::internal::GetCapturedStdout();
