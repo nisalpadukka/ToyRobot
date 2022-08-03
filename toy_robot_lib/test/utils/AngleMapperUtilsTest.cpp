@@ -33,7 +33,6 @@ namespace toyrobottest{
 
     TEST_P(AngleMapperUtilsTest360, getAngleIn360){
         EXPECT_EQ(toyrobot::utils::AngleMapperUtils::getAngleIn360(GetParam().first), GetParam().second);
-        EXPECT_EQ(toyrobot::utils::AngleMapperUtils::getAngleIn360(GetParam().first), GetParam().second);
     }
 
     class AngleMapperUtilsTestGetFacing : public testing::TestWithParam<pair<int, string>> {};
@@ -61,7 +60,6 @@ namespace toyrobottest{
             ));
     TEST_P(AngleMapperUtilsTestGetFacing, getFacing){
         EXPECT_EQ(toyrobot::utils::AngleMapperUtils::getFacing(GetParam().first), GetParam().second);
-        EXPECT_EQ(toyrobot::utils::AngleMapperUtils::getFacing(GetParam().first), GetParam().second);
     }
 
     class AngleMapperUtilsTestGetAngle : public testing::TestWithParam<pair<string, int>> {};
@@ -76,7 +74,6 @@ namespace toyrobottest{
             ));
 
     TEST_P(AngleMapperUtilsTestGetAngle, getFacing){
-        EXPECT_EQ(toyrobot::utils::AngleMapperUtils::getAngleValue(GetParam().first), GetParam().second);
         EXPECT_EQ(toyrobot::utils::AngleMapperUtils::getAngleValue(GetParam().first), GetParam().second);
     }
 
