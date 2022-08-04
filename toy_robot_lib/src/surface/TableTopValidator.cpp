@@ -15,5 +15,5 @@ namespace {
 bool TableTopValidator::validate(const Attribute<int> &coordinates) {
     auto x = coordinates.getValue(Axis::X);
     auto y = coordinates.getValue(Axis::Y);
-    return ((0 <= x) && (x < tableTopWidth) && (0 <= y) && (y < tableTopHeight));
+    return ((0 <= x) && (x <= tableTopWidth) && (0 <= y) && (y <= tableTopHeight));
 }

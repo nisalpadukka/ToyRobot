@@ -116,7 +116,7 @@ Output:
 
  2. Execute the program
 
- ```cd PROJECT_ROOT_DIRECTORY/build/toy_robot_ex/src && ./ToyRobot```
+ ```cd PROJECT_ROOT_DIRECTORY/build/toy_robot_ex/src && ./ToyRobot_ex```
 
 
  ## Test

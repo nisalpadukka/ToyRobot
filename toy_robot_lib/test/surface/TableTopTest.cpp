@@ -24,8 +24,8 @@ namespace toyrobottest {
             ::testing::Values(
                     TestParam(getAttribute(-1, 2), false),
                     TestParam(getAttribute(1, 2), true),
-                    TestParam(getAttribute(1, 5), false),
-                    TestParam(getAttribute(5, 5), false),
+                    TestParam(getAttribute(1, 5), true),
+                    TestParam(getAttribute(6, 5), false),
                     TestParam(getAttribute(0, 0), true),
                     TestParam(getAttribute(0, -1), false)
             ));

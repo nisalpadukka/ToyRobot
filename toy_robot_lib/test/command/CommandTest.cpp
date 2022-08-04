@@ -58,32 +58,35 @@ namespace toyrobottest{
                                   "Axis 0 was not set, start with PLACE command");
         EXPECT_THROW_WITH_MESSAGE(executeRotateCommand(toyrobot::Turn::RIGHT), invalid_argument,
                                   "Axis 2 was not set, start with PLACE command");
-        EXPECT_THROW_WITH_MESSAGE(executePlaceCommand(5, 5, 90), invalid_argument,
+        EXPECT_THROW_WITH_MESSAGE(executePlaceCommand(6, 4, 90), invalid_argument,
                                   "Place command should be within surface");
         executePlaceCommand(2, 4, 90);
         executeMoveCommand(1);
         EXPECT_EQ("3,4,EAST\n", executeReportCommand());
         executeMoveCommand(1);
-        EXPECT_THROW_WITH_MESSAGE(executeMoveCommand(1), invalid_argument, "Cannot move outside surface");
-        EXPECT_EQ("4,4,EAST\n", executeReportCommand());
-        executeRotateCommand(toyrobot::Turn::RIGHT);
-        EXPECT_EQ("4,4,SOUTH\n", executeReportCommand());
-        executeRotateCommand(toyrobot::Turn::RIGHT);
-        EXPECT_EQ("4,4,WEST\n", executeReportCommand());
         executeMoveCommand(1);
-        EXPECT_EQ("3,4,WEST\n", executeReportCommand());
+        EXPECT_THROW_WITH_MESSAGE(executeMoveCommand(1), invalid_argument, "Cannot move outside surface");
+        EXPECT_EQ("5,4,EAST\n", executeReportCommand());
         executeRotateCommand(toyrobot::Turn::RIGHT);
-        EXPECT_EQ("3,4,NORTH\n", executeReportCommand());
+        EXPECT_EQ("5,4,SOUTH\n", executeReportCommand());
         executeRotateCommand(toyrobot::Turn::RIGHT);
-        EXPECT_EQ("3,4,EAST\n", executeReportCommand());
+        EXPECT_EQ("5,4,WEST\n", executeReportCommand());
+        executeMoveCommand(1);
+        EXPECT_EQ("4,4,WEST\n", executeReportCommand());
+        executeRotateCommand(toyrobot::Turn::RIGHT);
+        EXPECT_EQ("4,4,NORTH\n", executeReportCommand());
+        executeRotateCommand(toyrobot::Turn::RIGHT);
+        EXPECT_EQ("4,4,EAST\n", executeReportCommand());
         executeRotateCommand(toyrobot::Turn::LEFT);
-        EXPECT_EQ("3,4,NORTH\n", executeReportCommand());
+        EXPECT_EQ("4,4,NORTH\n", executeReportCommand());
         executeRotateCommand(toyrobot::Turn::LEFT);
+        executeMoveCommand(1);
         EXPECT_EQ("3,4,WEST\n", executeReportCommand());
         executeRotateCommand(toyrobot::Turn::LEFT);
         EXPECT_EQ("3,4,SOUTH\n", executeReportCommand());
+        executeMoveCommand(1);
         executeRotateCommand(toyrobot::Turn::LEFT);
-        EXPECT_EQ("3,4,EAST\n", executeReportCommand());
+        EXPECT_EQ("3,3,EAST\n", executeReportCommand());
 
     }
 }
